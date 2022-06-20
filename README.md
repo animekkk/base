@@ -3,7 +3,7 @@ Library, which is used for easily saving data into databases.
 ## How to save and load data?
 #### Savable
 Every object that you want to save must implements `Savable` interface.
-It simply adds `getIdentificator` method for identifying them in
+It simply adds `getIdentificator` method for identifying them in databases.
 ```java
 @Data
 public class User implements Savable {
