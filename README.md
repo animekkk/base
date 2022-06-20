@@ -1,5 +1,5 @@
 # anBase
-Library, which is used for easily saving data into
+Library, which is used for easily saving data into databases.
 ## How to save and load data?
 #### Savable
 Every object that you want to save must implements `Savable` interface.
