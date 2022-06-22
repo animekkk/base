@@ -2,11 +2,11 @@
 Library, which is used for easily saving data into databases.
 ## How to save and load data?
 #### Savable
-Every object that you want to save must implements `Savable` interface.
+Every object that you want to save must extends `Savable`.
 It simply adds `getIdentificator` method for identifying them in
 ```java
 @Data
-public class User implements Savable {
+public class User extends Savable {
 
     private final String name;
     private final int age;

@@ -1,7 +1,6 @@
 package pl.animekkk.base;
 
-public interface Savable {
+public abstract class Savable {
 
-    String getIdentificator();
-
+    public abstract String getIdentificator();
 }
