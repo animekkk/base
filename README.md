@@ -2,8 +2,8 @@
 Library, which is used for easily saving data into databases.
 ## How to save and load data?
 #### Savable
-Every object that you want to save must extends `Savable`.
-It simply adds `getIdentificator` method for identifying them in
+Every object that you want to save must extend `Savable`.
+It simply adds `getIdentificator` method for identifying them in the databases.
 ```java
 @Data
 public class User extends Savable {
