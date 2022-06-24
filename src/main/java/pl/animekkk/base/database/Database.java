@@ -6,8 +6,10 @@ import java.util.Set;
 
 public interface Database {
 
-    void save(String path, Savable... objects);
+    void save(Savable... objects);
 
-    <T> Set<T> load(String path, Class<T> clazz);
+    <T> Set<T> load(Class<T> clazz);
+
+    void remove(String identificator);
 
 }

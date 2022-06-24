@@ -13,21 +13,28 @@ import java.util.Set;
 public class RedisDatabase implements Database {
 
     private final JedisPooled jedis;
+    private final String path;
     private Serializer serializer = new GsonSerializer();
 
     @Override
-    public void save(String path, Savable... objects) {
+    public void save(Savable... objects) {
         for(Savable object : objects) {
-            jedis.hset(path, object.getIdentificator(), this.serializer.serialize(object));
+            jedis.hset(this.path, object.getIdentificator(), this.serializer.serialize(object));
         }
     }
 
     @Override
-    public <T> Set<T> load(String path, Class<T> clazz) {
+    public <T> Set<T> load(Class<T> clazz) {
         Set<T> objects = new HashSet<>();
-        for(String value : this.jedis.hgetAll(path).values()) {
+        for(String value : this.jedis.hgetAll(this.path).values()) {
             objects.add(serializer.deserialize(value, clazz));
         }
         return objects;
     }
+
+    @Override
+    public void remove(String identificator) {
+        this.jedis.hdel(this.path, identificator);
+    }
+
 }
